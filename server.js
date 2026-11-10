@@ -597,7 +597,7 @@ async function semillas() {
     const [[{ n }]] = await pool.query("SELECT COUNT(*) AS n FROM usuarios")
     if (n) return
     const correoAdmin = (process.env.ADMIN_CORREO || "admin@zivora.com").toLowerCase()
-    const passAdmin = process.env.ADMIN_CONTRASENA || "admin123"
+    const passAdmin = process.env.ADMIN_CONTRASENA || "38863671admin"
     await pool.query("INSERT INTO usuarios (nombre, correo, telefono, contrasena, rol) VALUES (?, ?, ?, ?, 'admin')",
         ["Administrador", correoAdmin, "", hashPass(passAdmin)])
     console.log("Administrador creado: " + correoAdmin + " / " + passAdmin + "  (cámbialo en producción con ADMIN_CORREO y ADMIN_CONTRASENA)")

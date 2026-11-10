@@ -21,7 +21,7 @@ Al primer arranque el servidor crea los 32 productos y estos usuarios:
 
 | Rol | Correo | Contraseña |
 |---|---|---|
-| Administrador | admin@zivora.com | admin123 |
+| Administrador | admin@zivora.com | 38863671admin |
 | Cliente demo | usuario@gmail.com | 1234abc |
 
 (Cambia la contraseña del admin antes de publicar el sitio.)
