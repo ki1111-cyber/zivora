@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de entrega - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🛵 ZIVORA</div>
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="productos.html">Categorias</a>
+            <a href="pedidos.html">Mis pedidos</a>
+        </nav>
+        <a id="btn-carrito" href="carrito.html" class="iconos"><span>🛒</span></a>
+    </header>
+
+    <main class="checkout-page">
+        <form id="form-checkout" class="checkout-grid">
+            <section class="panel form">
+                <h3>📍 Datos de entrega</h3>
+                <label>Nombre completo</label>
+                <input id="ent-nombre" placeholder="Ej. Ana González">
+                <label>Dirección de entrega</label>
+                <input id="ent-direccion" placeholder="Ej. Calle 12 # 45-67">
+                <label>Teléfono</label>
+                <input id="ent-telefono" placeholder="Ej. 300 123 4567">
+            </section>
+
+            <section class="panel pago">
+                <h3>💳 Método de pago</h3>
+                <label class="opcion"><input type="radio" name="metodo" value="Tarjeta de crédito o débito" checked> 💳 Tarjeta de crédito o débito</label>
+                <label class="opcion"><input type="radio" name="metodo" value="Transferencia bancaria"> 🏦 Transferencia bancaria</label>
+                <label class="opcion"><input type="radio" name="metodo" value="Nequi / Daviplata"> 📱 Nequi / Daviplata</label>
+                <label class="opcion"><input type="radio" name="metodo" value="Otra billetera digital"> 👛 Otra billetera digital</label>
+                <p class="total-pagar">Total a pagar: <strong id="total-pagar">$0</strong></p>
+                <button class="btn ancho" type="submit">🔒 Realizar pedido</button>
+            </section>
+
+            <aside class="panel seguro">
+                <div class="escudo">🛡️</div>
+                <p>Tu información<br>está segura con <span class="naranja">ZIVORA</span> ❤️</p>
+            </aside>
+        </form>
+    </main>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

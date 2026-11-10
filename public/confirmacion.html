@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido confirmado - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🛵 ZIVORA</div>
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="productos.html">Categorias</a>
+            <a href="pedidos.html">Mis pedidos</a>
+        </nav>
+        <a id="btn-carrito" href="carrito.html" class="iconos"><span>🛒</span></a>
+    </header>
+
+    <main class="confirmacion">
+        <section class="conf-izq">
+            <div class="check-grande">✓</div>
+            <h1>¡Pedido confirmado!</h1>
+            <p>Tu pedido <strong id="conf-codigo" class="naranja">#ZV----</strong> <span id="conf-texto">está en camino.</span></p>
+            <button class="btn" id="btn-detalles">Ver detalles del pedido</button>
+        </section>
+        <section class="conf-der">
+            <div id="conf-linea"></div>
+            <div class="hero-art pequeno">🛵</div>
+        </section>
+    </main>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

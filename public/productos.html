@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="home">
+<div class="tienda">
+    <header>
+        <div class="logo">🛵 ZIVORA</div>
+        
+        <nav>
+            <a id="btn-inicio" href="home.html">Inicio</a>
+            <a id="btn-cat" href="productos.html" class="activo">Categorias</a> 
+            <a id="btn-pedidos" href="pedidos.html">Mis pedidos</a>
+            
+        </nav>
+        <input class="search" placeholder="Buscar productos...">
+        <a id="btn-carrito" href="carrito.html" class="iconos"><span>🛒</span></a>
+    </header>
+
+    <aside class="lat">
+    <h2>Categorías</h2>
+    <button class="cat">Todos</button>
+    <button class="cat">Desayunos</button>
+    <button class="cat">Almuerzos</button>
+    <button class="cat">Bebidas</button>
+    <button class="cat">Otros</button>
+</aside>
+<section class="productos">
+    <h3>Nuestros productos</h3>
+
+    <div class="list">
+    </div>
+</section>
+</div>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

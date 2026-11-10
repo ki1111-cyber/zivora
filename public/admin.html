@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🛵 ZIVORA <small class="tag-admin">ADMIN</small></div>
+        <nav>
+            <a href="home.html">Ver tienda</a>
+        </nav>
+    </header>
+
+    <main class="admin-page">
+        <h1>Panel de administración</h1>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="tabs">
+            <button class="tab activo" data-tab="pedidos">Pedidos</button>
+            <button class="tab" data-tab="productos">Productos</button>
+            <button class="tab" data-tab="usuarios">Usuarios</button>
+        </div>
+
+        <section id="tab-pedidos" class="panel"></section>
+
+        <section id="tab-productos" class="panel oculto">
+            <form id="form-producto" class="form fila-form">
+                <input type="hidden" id="prod-id">
+                <input id="prod-nombre" placeholder="Nombre del producto">
+                <input id="prod-precio" type="number" min="0" placeholder="Precio">
+                <select id="prod-categoria"></select>
+                <input id="prod-emoji" placeholder="Emoji (ej. 🍔)" maxlength="4">
+                <input id="prod-imagen" placeholder="URL de imagen (opcional)">
+                <label class="chk"><input type="checkbox" id="prod-activo" checked> Visible</label>
+                <button class="btn" type="submit" id="prod-guardar">Agregar producto</button>
+                <button class="btn sec oculto" type="button" id="prod-cancelar">Cancelar</button>
+                <button class="tab" data-tab="categorias">Categorías</button>
+            </form>
+            <div id="tabla-productos"></div>
+        </section>
+
+        <section id="tab-usuarios" class="panel oculto">
+            <section id="tab-categorias" class="panel oculto">
+    <form id="form-categoria" class="form fila-form">
+        <input type="hidden" id="cat-id">
+        <input id="cat-nombre" placeholder="Nombre de la categoría">
+        <label class="chk"><input type="checkbox" id="cat-activa" checked> Visible</label>
+        <button class="btn" type="submit" id="cat-guardar">Agregar categoría</button>
+        <button class="btn sec oculto" type="button" id="cat-cancelar">Cancelar</button>
+    </form>
+    <div id="tabla-categorias"></div>
+</section>
+            <form id="form-usuario" class="form fila-form">
+                <input id="usr-nombre" placeholder="Nombre">
+                <input id="usr-correo" type="email" placeholder="Correo">
+                <input id="usr-telefono" placeholder="Teléfono">
+                <input id="usr-pass" type="password" placeholder="Contraseña">
+                <select id="usr-rol"><option value="cliente">Cliente</option><option value="admin">Administrador</option></select>
+                <button class="btn" type="submit">Crear usuario</button>
+            </form>
+            <div id="tabla-usuarios"></div>
+        </section>
+    </main>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

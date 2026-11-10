@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">🛵 ZIVORA</div>
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="productos.html">Categorias</a>
+            <a href="pedidos.html">Mis pedidos</a>
+        </nav>
+        <a id="btn-carrito" href="carrito.html" class="iconos"><span>🛒</span></a>
+    </header>
+
+    <main class="carrito-page">
+        <h1>Tu carrito</h1>
+
+        <!-- Se muestra solo si el carrito está vacío -->
+        <div id="carrito-vacio" class="vacio oculto">
+            <p>Tu carrito está vacío.</p>
+            <button class="btn" data-ir="productos">Explorar productos →</button>
+        </div>
+
+        <!-- Se muestra solo si hay productos -->
+        <div id="carrito-contenido" class="carrito-grid oculto">
+            <div id="lista-carrito"></div>
+
+            <aside class="resumen">
+                <h3>Resumen del pedido</h3>
+                <div class="linea"><span>Subtotal</span><span id="subtotal">$0</span></div>
+                <div class="linea"><span>Domicilio</span><span id="domicilio">$0</span></div>
+                <div class="linea total"><span>Total</span><span id="total">$0</span></div>
+                <button class="btn ancho" data-ir="checkout">Continuar con el pedido →</button>
+            </aside>
+        </div>
+    </main>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

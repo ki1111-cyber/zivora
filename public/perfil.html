@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🛵 ZIVORA</div>
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="productos.html">Categorias</a>
+            <a href="pedidos.html">Mis pedidos</a>
+        </nav>
+        <a id="btn-carrito" href="carrito.html" class="iconos"><span>🛒</span></a>
+    </header>
+
+    <main class="carrito-page">
+        <h1>Mi perfil</h1>
+        <p>Acá puedes ver y cambiar tus datos.</p>
+
+        <form id="formPerfil" class="panel form">
+            <label>Nombre</label>
+            <input type="text" id="nombre" required>
+
+            <label>Correo (no se puede cambiar)</label>
+            <input type="email" id="correo" readonly>
+
+            <label>Teléfono</label>
+            <input type="tel" id="telefono" placeholder="Ej: 3001234567">
+
+            <label>Nueva contraseña (Opcional)</label>
+            <input type="password" id="nuevaClave" placeholder="Nueva contraseña (mínimo 6 caracteres)">
+
+            <p><button class="btn" type="submit">Guardar cambios</button></p>
+            <p id="mensaje" class="naranja"></p>
+        </form>
+
+        <p>
+            <button class="btn sec" id="btnCambiarCuenta" type="button">Cambiar de cuenta</button>
+            <button class="btn sec" id="btnCerrarSesion" type="button">Cerrar sesión</button>
+        </p>
+    </main>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+    <script>
+        (() => {
+            const u = ZivoraDB.usuarioActual()
+            if (!u) return // app.js ya redirige al inicio
+            const $id = (i) => document.getElementById(i)
+            $id("nombre").value = u.nombre || ""
+            $id("correo").value = u.correo || ""
+            $id("telefono").value = u.telefono || ""
+
+            $id("formPerfil").addEventListener("submit", async (e) => {
+                e.preventDefault()
+                const r = await ZivoraDB.actualizarPerfil({
+                    nombre: $id("nombre").value.trim(),
+                    telefono: $id("telefono").value.trim(),
+                    nuevaClave: $id("nuevaClave").value
+                })
+                if (!r.ok) return alert(r.error)
+                $id("nuevaClave").value = ""
+                $id("mensaje").textContent = "Cambios guardados."
+            })
+
+            const salir = async () => {
+                await ZivoraDB.cerrarSesion()
+                window.location.href = "index.html"
+            }
+            $id("btnCerrarSesion").addEventListener("click", salir)
+            $id("btnCambiarCuenta").addEventListener("click", salir)
+        })()
+    </script>
+</body>
+</html>

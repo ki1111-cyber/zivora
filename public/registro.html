@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="login">
+      <h1>ZIVORA</h1>
+      <p>Crea tu cuenta para empezar a pedir</p>
+
+      <form id="form-registro">
+        <input id="reg-nombre" placeholder="Nombre completo">
+        <input id="reg-correo" type="email" placeholder="Correo electrónico (uno real, te enviaremos un código)">
+        <input id="reg-telefono" placeholder="Teléfono">
+        <input id="reg-pass" type="password" placeholder="Contraseña (mínimo 8 caracteres)">
+        <input id="reg-pass2" type="password" placeholder="Confirmar contraseña">
+        <button id="btn-crear" type="submit">Crear cuenta</button>
+      </form>
+
+      <form id="form-codigo" class="oculto">
+        <p id="texto-codigo"></p>
+        <input id="reg-codigo" inputmode="numeric" maxlength="6" placeholder="Código de 6 dígitos">
+        <button id="btn-verificar" type="submit">Verificar y crear cuenta</button>
+        <button id="btn-reenviar" type="button">Reenviar código</button>
+      </form>
+
+      <p>ó</p>
+      <div id="google-boton"></div>
+
+      <p>¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
+    </div>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

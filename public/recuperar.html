@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña - Zivora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="login">
+      <form id="form-correo">
+  <input id="rec-correo" type="email" placeholder="Correo electrónico">
+  <button type="submit">Enviar código</button>
+</form>
+<form id="form-recuperar" class="oculto">
+  <input id="rec-codigo" inputmode="numeric" maxlength="6" placeholder="Código de 6 dígitos">
+  <input id="rec-pass" type="password" placeholder="Nueva contraseña (mínimo 6 caracteres)">
+  <button id="btn-recuperar" type="submit">Cambiar contraseña</button>
+</form>
+    </div>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

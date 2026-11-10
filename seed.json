@@ -1,0 +1,290 @@
+[
+ {
+  "id": 1,
+  "nombre": "Tostadas francesas",
+  "precio": 8000,
+  "categoria": "Desayunos",
+  "emoji": "🥞",
+  "imagen": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=500",
+  "activo": true
+ },
+ {
+  "id": 2,
+  "nombre": "Calentado paisa",
+  "precio": 12000,
+  "categoria": "Desayunos",
+  "emoji": "🥞",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy3ev6-91l1RZEfw5FFpADuhFTKCjT0f0hz2o51Ig59cvJUf6_Ex30i4G4&s=10",
+  "activo": true
+ },
+ {
+  "id": 3,
+  "nombre": "Hamburguesa clásica",
+  "precio": 11500,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500",
+  "activo": true
+ },
+ {
+  "id": 4,
+  "nombre": "Bandeja paisa",
+  "precio": 8500,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500",
+  "activo": true
+ },
+ {
+  "id": 5,
+  "nombre": "Jugo natural",
+  "precio": 6000,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500",
+  "activo": true
+ },
+ {
+  "id": 6,
+  "nombre": "Gaseosa Coca-Cola",
+  "precio": 5000,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500",
+  "activo": true
+ },
+ {
+  "id": 7,
+  "nombre": "Papas fritas",
+  "precio": 7000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSl7pU9MVtacKfcMYpqAHwhxZVbu0969gpYW6-XPy4EpsznpqiNzjdEic&s=10",
+  "activo": true
+ },
+ {
+  "id": 8,
+  "nombre": "Empanadas",
+  "precio": 2500,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pnVgmqT7NKEqq5Aqf_yKOPKzhplcaPfGqVXxuC5OuTojrCW9JvShqYE&s=10",
+  "activo": true
+ },
+ {
+  "id": 9,
+  "nombre": "Gaseosa Pepsi",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpKJXFezMxVDDPUBR8cK4P0t5L5o9i32MLPB3gmZMr9PX2noVPO41jdJWv&s=10",
+  "activo": true
+ },
+ {
+  "id": 10,
+  "nombre": "Gaseosa Quatro",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMM_QALGpW4yHGUgDaugnyqfHi1lFEe7zEhlls7yA6IHGWXTGO8VHEkHo&s=10",
+  "activo": true
+ },
+ {
+  "id": 11,
+  "nombre": "Gaseosa Colombiana",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4zek7zdOpqhz0vHntUWpZoqN-xwav7Y-u1tHlksp69g&s=10",
+  "activo": true
+ },
+ {
+  "id": 12,
+  "nombre": "Gaseosa Manzana",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsiB5bq2AdssPFK0GaAG4ZiU42n7CCReuT8-3JOND2qIVebXzQOsQCNQLF&s=10",
+  "activo": true
+ },
+ {
+  "id": 13,
+  "nombre": "Gaseosa Uva",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://infonutricional.tomatelavida.com.co/wp-content/uploads/2023/06/postobon_informacion_nutriconallogo-uva-p-e1687378302720.png",
+  "activo": true
+ },
+ {
+  "id": 14,
+  "nombre": "Gaseosa Premio",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://laprincipaldelicores.com/cdn/shop/files/gaseosapremio400ml.png?v=1693352170",
+  "activo": true
+ },
+ {
+  "id": 15,
+  "nombre": "Gaseosa Sprite",
+  "precio": 4500,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1WiS9T50iqlh77uPb6YgmOOLWtLkedoin3ibH4AwrxQ&s=10",
+  "activo": true
+ },
+ {
+  "id": 16,
+  "nombre": "Limonada",
+  "precio": 3000,
+  "categoria": "Bebidas",
+  "emoji": "🥤",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNthX7rQQjetb80YrzU0BOzTB274TMkcOjaeex-KWcAJ8IZt-GyJv7JDE&s=10",
+  "activo": true
+ },
+ {
+  "id": 17,
+  "nombre": "Arepa con huevo",
+  "precio": 8000,
+  "categoria": "Desayunos",
+  "emoji": "🥞",
+  "imagen": "https://static.wixstatic.com/media/20159d_cc99ccf98d714e8e9155401fdea0dcfb~mv2.jpg/v1/fill/w_980,h_750,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/20159d_cc99ccf98d714e8e9155401fdea0dcfb~mv2.jpg",
+  "activo": true
+ },
+ {
+  "id": 18,
+  "nombre": "Pancakes",
+  "precio": 9000,
+  "categoria": "Desayunos",
+  "emoji": "🥞",
+  "imagen": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500",
+  "activo": true
+ },
+ {
+  "id": 19,
+  "nombre": "Pechuga apanada con papas",
+  "precio": 15000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWwcELtmTWSdaQgs-ByIEsU3Rbrw7NMAmuhcUlRhZEohkpRN7vYp3AIg&s=10",
+  "activo": true
+ },
+ {
+  "id": 20,
+  "nombre": "Alitas con papas",
+  "precio": 13000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs5jd8Ywf7R9yJCNxiqqDaYSy8gGxklN2zJtw9npPMwHrTpLaLKmlL3ihk&s=10",
+  "activo": true
+ },
+ {
+  "id": 21,
+  "nombre": "Arroz con milanesa y papas",
+  "precio": 16000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyFpJ8qLd2-b5r4NAlaxxM_oO_947QENQHZJ9RBQGK1w&s=10",
+  "activo": true
+ },
+ {
+  "id": 22,
+  "nombre": "Pasta carbonara",
+  "precio": 17000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOHHJMl7ECXwX89GWplgQfo-H9J3QZLkYrc2QX0Y2CI2-2azvxzKaiOec&s=10",
+  "activo": true
+ },
+ {
+  "id": 23,
+  "nombre": "Pasta en salsa Boloñesa",
+  "precio": 17000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjG-1mvCVo0ccNvHh_QT8242XBfeQ64HNtC4WwVE5z4w&s=100",
+  "activo": true
+ },
+ {
+  "id": 24,
+  "nombre": "Lasagna",
+  "precio": 18000,
+  "categoria": "Almuerzos",
+  "emoji": "🍝",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUJwHfhTlznaNa1mhHFngBKgbDDa7hcnQlD8jGuc9uwYu0tIR9U58v07L7&s=10",
+  "activo": true
+ },
+ {
+  "id": 25,
+  "nombre": "Sandwich de pollo",
+  "precio": 10000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://www.recetasnestle.com.ec/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/84138b65dc910dc955e4b2d0d48d39a3.jpg?itok=SipwzTrF",
+  "activo": true
+ },
+ {
+  "id": 26,
+  "nombre": "Sandwich de jamon y queso",
+  "precio": 9000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://assets.unileversolutions.com/recipes-v2/208384.jpg",
+  "activo": true
+ },
+ {
+  "id": 27,
+  "nombre": "Sandwich mixto",
+  "precio": 9500,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkua4cDJCaAoghyqnlcbKLDmL83JviEjK_rvUn4V43ZUCO7WUESJcWlQkp&s=10",
+  "activo": true
+ },
+ {
+  "id": 28,
+  "nombre": "Sandwich de pollo y aguacate",
+  "precio": 11000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://medify.clinic/wp-content/uploads/sanguchedepolloypalta.webp",
+  "activo": true
+ },
+ {
+  "id": 29,
+  "nombre": "Sandwich cubano",
+  "precio": 11500,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDu4JxdnukNhZjzGX5Z_Fl7klCvjYKru1IJFLNaPAVu_oYrkzGFVu-xzbD&s=10",
+  "activo": true
+ },
+ {
+  "id": 30,
+  "nombre": "Brownies",
+  "precio": 6000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=500",
+  "activo": true
+ },
+ {
+  "id": 31,
+  "nombre": "Tiramisu",
+  "precio": 5000,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+  "activo": true
+ },
+ {
+  "id": 32,
+  "nombre": "Cheesecake",
+  "precio": 8500,
+  "categoria": "Otros",
+  "emoji": "🥪",
+  "imagen": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=500",
+  "activo": true
+ }
+]
