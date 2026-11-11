@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos de entrega - Zivora</title>
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        .paso-pago { display:none; margin-top:15px; padding:15px; background:#fff7ed; border:2px solid #ff7a00; border-radius:12px; }
+        .paso-pago.visible { display:block; }
+        .paso-pago input { width:100%; padding:10px; margin:6px 0 10px; border:1px solid #ddd; border-radius:8px; }
+        .paso-pago .dato-pago { background:#fff; padding:10px; border-radius:8px; margin:10px 0; font-size:15px; }
+        .btn-sec { background:#fff; border:1px solid #ccc; padding:10px; width:100%; border-radius:8px; margin-top:8px; cursor:pointer; }
+    </style>
 </head>
 <body>
     <header>
@@ -22,11 +29,11 @@
             <section class="panel form">
                 <h3>📍 Datos de entrega</h3>
                 <label>Nombre completo</label>
-                <input id="ent-nombre" placeholder="Ej. Ana González">
+                <input id="ent-nombre" placeholder="Ej. Ana González" required>
                 <label>Dirección de entrega</label>
-                <input id="ent-direccion" placeholder="Ej. Calle 12 # 45-67">
+                <input id="ent-direccion" placeholder="Ej. Calle 12 # 45-67" required>
                 <label>Teléfono</label>
-                <input id="ent-telefono" placeholder="Ej. 300 123 4567">
+                <input id="ent-telefono" placeholder="Ej. 300 123 4567" required>
             </section>
 
             <section class="panel pago">
@@ -36,7 +43,19 @@
                 <label class="opcion"><input type="radio" name="metodo" value="Nequi / Daviplata"> 📱 Nequi / Daviplata</label>
                 <label class="opcion"><input type="radio" name="metodo" value="Otra billetera digital"> 👛 Otra billetera digital</label>
                 <p class="total-pagar">Total a pagar: <strong id="total-pagar">$0</strong></p>
-                <button class="btn ancho" type="submit">🔒 Realizar pedido</button>
+
+                <!-- PASO 1: Este botón YA NO es submit, solo muestra el pago -->
+                <button class="btn ancho" type="button" id="btn-ir-pago">🔒 Continuar al pago</button>
+
+                <!-- PASO 2: Aquí aparece el pago según el método -->
+                <div id="paso-pago" class="paso-pago">
+                    <h4 id="titulo-pago">💳 Pagar</h4>
+                    <div id="contenido-pago"></div>
+                    <p id="msg-pago" style="display:none;color:green;font-weight:bold;">Procesando pago... ⏳</p>
+                    <!-- Este SÍ es submit, es el que crea el pedido en tu app.js -->
+                    <button class="btn ancho" type="submit" id="btn-confirmar-pago">✅ Confirmar pago y realizar pedido</button>
+                    <button class="btn-sec" type="button" id="btn-volver">← Cambiar método</button>
+                </div>
             </section>
 
             <aside class="panel seguro">
@@ -48,5 +67,64 @@
 
     <script src="db.js"></script>
     <script src="app.js"></script>
+    <script>
+    // --- PASO DE PAGO SIMULADO FUNCIONAL (no toca tu app.js) ---
+    const btnIrPago = document.getElementById('btn-ir-pago');
+    const pasoPago = document.getElementById('paso-pago');
+    const contenido = document.getElementById('contenido-pago');
+    const titulo = document.getElementById('titulo-pago');
+
+    function getMetodo(){
+        return document.querySelector('input[name="metodo"]:checked').value;
+    }
+    function getTotal(){
+        return document.getElementById('total-pagar').textContent;
+    }
+
+    btnIrPago.addEventListener('click', ()=>{
+        const nombre = document.getElementById('ent-nombre').value.trim();
+        const dir = document.getElementById('ent-direccion').value.trim();
+        const tel = document.getElementById('ent-telefono').value.trim();
+        if(!nombre || !dir || !tel){ alert('Porfa completa nombre, dirección y teléfono antes de pagar'); return; }
+        const m = getMetodo();
+        const total = getTotal();
+        titulo.textContent = 'Pagar con: ' + m + ' - ' + total;
+
+        if(m.includes('Nequi')){
+            contenido.innerHTML = '<div class="dato-pago">Transfiere <b>'+total+'</b> a Nequi / Daviplata<br><b>Número Zivora: 310 891 1655</b><br>Cuenta a nombre de Zivora</div><label>Número desde donde pagaste</label><input id="pago-origen" placeholder="Ej. 310 891 1655" required><label>Número de comprobante / referencia</label><input id="pago-ref" placeholder="Ej. 123456789" required><small>Después de transferir, escribe tu comprobante para confirmar.</small>';
+        } else if(m.includes('Transferencia')){
+            contenido.innerHTML = '<div class="dato-pago">Transfiere <b>'+total+'</b> a<br><b>Bancolombia Ahorros: 123-456789-00</b><br>A nombre de Zivora - NIT 123456789</div><label>Número de comprobante</label><input id="pago-ref" placeholder="Ej. 987654321" required>';
+        } else if(m.includes('Tarjeta')){
+            contenido.innerHTML = '<label>Nombre en la tarjeta</label><input id="pago-nombre-tarjeta" placeholder="Como aparece en la tarjeta" required><label>Número de tarjeta</label><input id="pago-num-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required><label>Fecha vencimiento (MM/AA)</label><input id="pago-vence" placeholder="12/28" maxlength="5" required><label>CVV</label><input id="pago-cvv" placeholder="123" maxlength="4" required><small>Demo académica: no se guarda la tarjeta real, solo se simula la validación.</small>';
+        } else {
+            contenido.innerHTML = '<label>¿Qué billetera usas?</label><input id="pago-billetera" placeholder="Ej. Dale, Movii" required><label>Número de tu billetera</label><input id="pago-origen" placeholder="Ej. 300 123 4567" required><label>Referencia</label><input id="pago-ref" placeholder="Ej. 123456" required>';
+        }
+        pasoPago.classList.add('visible');
+        pasoPago.scrollIntoView({behavior:'smooth'});
+    });
+
+    document.getElementById('btn-volver').addEventListener('click', ()=>{
+        pasoPago.classList.remove('visible');
+    });
+
+    // Cuando le da Confirmar pago, validamos que haya llenado el pago y dejamos que tu app.js cree el pedido
+    document.getElementById('form-checkout').addEventListener('submit', (e)=>{
+        if(!pasoPago.classList.contains('visible')){
+            e.preventDefault();
+            btnIrPago.click();
+            return;
+        }
+        // Si está en paso de pago, validar campos de pago
+        const inputs = contenido.querySelectorAll('input[required]');
+        for(let inp of inputs){
+            if(!inp.value.trim()){ e.preventDefault(); alert('Porfa completa los datos del pago'); inp.focus(); return; }
+        }
+        // Guardamos info del pago para sustentar
+        const ref = document.getElementById('pago-ref') ? document.getElementById('pago-ref').value : 'TARJETA-'+Date.now();
+        localStorage.setItem('zivora_ultimo_pago', JSON.stringify({ metodo: getMetodo(), referencia: ref, fecha: new Date().toISOString(), total: getTotal() }));
+        document.getElementById('msg-pago').style.display = 'block';
+        // Dejamos que app.js siga y cree el pedido como antes
+    });
+    </script>
 </body>
 </html>

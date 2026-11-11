@@ -403,10 +403,10 @@ app.post("/api/pedidos", autenticar, ruta(async (req, res) => {
             `INSERT INTO pedidos (codigo, usuario_id, estado, subtotal, domicilio, total,
                                   entrega_nombre, entrega_direccion, entrega_telefono, metodo_pago)
              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            ["T" + crypto.randomBytes(5).toString("hex"), req.usuario.id, ESTADOS[0], subtotal, DOMICILIO, subtotal + DOMICILIO,
+            ['ZV' + Date.now().toString().slice(-6) + Math.floor(Math.random()*1000), req.usuario.id, ESTADOS[0], subtotal, DOMICILIO, subtotal + DOMICILIO,
              String(entrega.nombre).trim(), String(entrega.direccion).trim(), String(entrega.telefono).trim(), String(metodo)])
         const id = r.insertId
-        await conn.query("UPDATE pedidos SET codigo = CONCAT('ZV', LPAD(id, 4, '0')) WHERE id = ?", [id])
+       
         await conn.query("INSERT INTO pedido_items (pedido_id, producto_id, nombre, precio, cantidad) VALUES ?",
             [filas.map((f) => [id, f.id, f.nombre, f.precio, f.cantidad])])
         await conn.query("INSERT INTO pedido_historial (pedido_id, estado) VALUES (?, ?)", [id, ESTADOS[0]])
