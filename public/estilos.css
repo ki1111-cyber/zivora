@@ -1387,45 +1387,15 @@ body, button, input, select, textarea{
 }
 
 
-
-/* ARREGLO CELULAR */
 @media (max-width: 768px) {
-  header {
-    flex-wrap: wrap !important;
-    padding: 10px !important;
-    gap: 10px !important;
-  }
-
-  header nav {
-    width: 100% !important;
-    order: 3 !important;
-    justify-content: flex-start !important;
-    gap: 15px !important;
-    overflow-x: auto !important;
-  }
-
-  header nav a {
-    white-space: nowrap !important;
-    font-size: 15px !important;
-  }
-
-  /* Para que el cuadrito del perfil no se corte */
-  .perfil, .menu-perfil, .dropdown {
-    right: 10px !important;
-    left: auto !important;
-    max-width: 90vw !important;
-  }
-
-  /* Para que el título grande no se corte */
-  h1, .hero h1, .titulo {
-    font-size: 32px !important;
-    line-height: 1.1 !important;
-    word-break: break-word !important;
-    padding: 0 15px !important;
-  }
-
-  .hero, .portada {
-    padding: 20px 15px !important;
-    overflow: hidden !important;
+  .menu-perfil {
+    position: fixed;
+    top: 150px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    z-index: 1000;
   }
 }
