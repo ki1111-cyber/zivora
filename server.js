@@ -243,7 +243,7 @@ app.post("/api/recuperar/codigo", ruta(async (req, res) => {
 app.post("/api/recuperar", ruta(async (req, res) => {
     const { correo, codigo, contrasena } = req.body || {}
     const mail = String(correo || "").trim().toLowerCase()
-    if (String(contrasena || "").length < 6) return fallo(res, 400, "La contraseña debe tener mínimo 6 caracteres")
+    if (String(contrasena || "").length < 8) return fallo(res, 400, "La contraseña debe tener mínimo 8 caracteres")
     const r = await revisarCodigo(mail, "recuperar", codigo)
     if (r.error) return fallo(res, 400, r.error)
     await pool.query("UPDATE usuarios SET contrasena = ? WHERE correo = ?", [hashPass(String(contrasena)), mail])
