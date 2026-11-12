@@ -380,3 +380,22 @@ if (!paginasPublicas.includes(paginaActual) && !sesionActual) {
     // el historial se refresca solo para ver cuando el admin cambia el estado
     if ($("#lista-pedidos")) setInterval(pintarPedidos, 15000)
 }
+
+// === PARCHE RÁPIDO SUSTENTACIÓN - NO MANDA CORREO REAL ===
+const formCorreoFix = document.getElementById('form-correo');
+if (formCorreoFix) {
+  formCorreoFix.addEventListener('submit', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const correo = document.getElementById('rec-correo').value.trim();
+    if(!correo){ alert('Escribe tu correo'); return; }
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString();
+    localStorage.setItem('codigo_recuperacion', codigo);
+    localStorage.setItem('correo_recuperacion', correo);
+    // Para que el otro formulario lo pueda validar
+    window.codigoRecuperacion = codigo;
+    alert('Código de demostración: ' + codigo);
+    document.getElementById('form-correo').classList.add('oculto');
+    document.getElementById('form-recuperar').classList.remove('oculto');
+  }, true);
+}
