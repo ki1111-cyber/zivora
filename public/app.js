@@ -446,6 +446,6 @@ if (formRecuperarFix) {
 
     alert('Contraseña cambiada con éxito. Ya puedes iniciar sesión.');
     localStorage.removeItem('codigo_recuperacion');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
   }, true);
 }
