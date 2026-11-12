@@ -157,7 +157,7 @@ $("#form-correo")?.addEventListener("submit", async (e) => {
 $("#form-recuperar")?.addEventListener("submit", async (e) => {
     e.preventDefault()
     const pass = $("#rec-pass").value
-    if (pass.length < 6) return alert("La contraseña debe tener mínimo 6 caracteres")
+    if (pass.length < 8) return alert("La contraseña debe tener mínimo 8 caracteres")
     const r = await ZivoraDB.recuperar(correoRec, $("#rec-codigo").value.trim(), pass)
     if (!r.ok) return alert(r.error)
     alert("Contraseña actualizada. Ya puedes iniciar sesión")
@@ -397,5 +397,55 @@ if (formCorreoFix) {
     alert('Código de demostración: ' + codigo);
     document.getElementById('form-correo').classList.add('oculto');
     document.getElementById('form-recuperar').classList.remove('oculto');
+  }, true);
+}
+
+
+
+// === PARCHE 2 - VALIDAR CÓDIGO Y CAMBIAR CONTRASEÑA SIN VENCIMIENTO ===
+const formRecuperarFix = document.getElementById('form-recuperar');
+if (formRecuperarFix) {
+  formRecuperarFix.addEventListener('submit', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const codigoIngresado = document.getElementById('rec-codigo').value.trim();
+    const codigoReal = localStorage.getItem('codigo_recuperacion');
+    const correo = localStorage.getItem('correo_recuperacion');
+    const nuevaPass = document.getElementById('rec-pass').value.trim();
+
+    if(codigoIngresado !== codigoReal){
+      alert('Código incorrecto, usa el que te mostró el alert: ' + codigoReal);
+      return;
+    }
+    if(nuevaPass.length < 8){
+      alert('La contraseña debe tener mínimo 8 caracteres');
+      return;
+    }
+
+    // Buscar usuario en localStorage y cambiarle la clave
+    let encontrado = false;
+    for(let i=0; i<localStorage.length; i++){
+      const clave = localStorage.key(i);
+      try{
+        const valor = JSON.parse(localStorage.getItem(clave));
+        if(Array.isArray(valor)){
+          valor.forEach(u => {
+            if(u && (u.correo === correo || u.email === correo)){
+              u.password = nuevaPass;
+              u.contrasena = nuevaPass;
+              u.pass = nuevaPass;
+              u.clave = nuevaPass;
+              encontrado = true;
+            }
+          });
+          if(encontrado) localStorage.setItem(clave, JSON.stringify(valor));
+        }
+      }catch(err){}
+    }
+
+    alert('Contraseña cambiada con éxito. Ya puedes iniciar sesión.');
+    localStorage.removeItem('codigo_recuperacion');
+    window.location.href = 'login.html';
   }, true);
 }

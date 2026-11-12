@@ -150,7 +150,7 @@ $("#form-registro")?.addEventListener("submit", (e) => {
     const nombre = $("#reg-nombre").value.trim(), correo = $("#reg-correo").value.trim()
     const tel = $("#reg-telefono").value.trim(), p1 = $("#reg-pass").value, p2 = $("#reg-pass2").value
     if (!nombre || !correo || !tel || !p1) return alert("Completa todos los campos")
-    if (p1.length < 6) return alert("La contraseña debe tener mínimo 6 caracteres")
+    if (p1.length < 8) return alert("La contraseña debe tener mínimo 8 caracteres")
     if (p1 !== p2) return alert("Las contraseñas no coinciden")
     const r = ZivoraDB.registrar({ nombre, correo, telefono: tel, contraseña: p1 })
     if (!r.ok) return alert(r.error)
@@ -161,7 +161,7 @@ $("#form-registro")?.addEventListener("submit", (e) => {
 $("#form-recuperar")?.addEventListener("submit", (e) => {
     e.preventDefault()
     const pass = $("#rec-pass").value
-    if (pass.length < 6) return alert("La contraseña debe tener mínimo 6 caracteres")
+    if (pass.length < 8) return alert("La contraseña debe tener mínimo 8 caracteres")
     if (ZivoraDB.recuperar($("#rec-correo").value, pass)) {
         alert("Contraseña actualizada. Ya puedes iniciar sesión")
         window.location.href = "index.html"

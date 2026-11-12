@@ -168,7 +168,7 @@ app.post("/api/registro/codigo", ruta(async (req, res) => {
     if (!nombre || !correo || !telefono || !contrasena) return fallo(res, 400, "Completa todos los campos")
     const mail = String(correo).trim().toLowerCase()
     if (!EMAIL_OK.test(mail)) return fallo(res, 400, "Escribe un correo válido")
-    if (String(contrasena).length < 6) return fallo(res, 400, "La contraseña debe tener mínimo 6 caracteres")
+    if (String(contrasena).length < 8) return fallo(res, 400, "La contraseña debe tener mínimo 8 caracteres")
     const [existe] = await pool.query("SELECT id FROM usuarios WHERE correo = ?", [mail])
     if (existe.length) return fallo(res, 409, "Ya existe una cuenta con ese correo")
     let error
@@ -293,7 +293,7 @@ app.put("/api/perfil", autenticar, ruta(async (req, res) => {
     const telefono = String((req.body && req.body.telefono) || "").trim().slice(0, 30)
     const nueva = String((req.body && req.body.nuevaClave) || "")
     if (!nombre) return fallo(res, 400, "Escribe tu nombre")
-    if (nueva && nueva.length < 6) return fallo(res, 400, "La contraseña debe tener mínimo 6 caracteres")
+    if (nueva && nueva.length < 8) return fallo(res, 400, "La contraseña debe tener mínimo 8 caracteres")
     await pool.query("UPDATE usuarios SET nombre = ?, telefono = ? WHERE id = ?", [nombre, telefono, req.usuario.id])
     if (nueva) {
         await pool.query("UPDATE usuarios SET contrasena = ? WHERE id = ?", [hashPass(nueva), req.usuario.id])
@@ -558,7 +558,7 @@ admin.get("/usuarios", ruta(async (req, res) => {
 admin.post("/usuarios", ruta(async (req, res) => {
     const { nombre, correo, telefono, contrasena, rol } = req.body || {}
     if (!nombre || !correo || !telefono || !contrasena) return fallo(res, 400, "Completa todos los campos")
-    if (String(contrasena).length < 6) return fallo(res, 400, "La contraseña debe tener mínimo 6 caracteres")
+    if (String(contrasena).length < 8) return fallo(res, 400, "La contraseña debe tener mínimo 8 caracteres")
     const mail = String(correo).trim().toLowerCase()
     const [existe] = await pool.query("SELECT id FROM usuarios WHERE correo = ?", [mail])
     if (existe.length) return fallo(res, 409, "Ya existe una cuenta con ese correo")
