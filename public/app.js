@@ -415,7 +415,7 @@ if (formRecuperarFix) {
     const nuevaPass = document.getElementById('rec-pass').value.trim();
 
     if(codigoIngresado !== codigoReal){
-      alert('Código incorrecto, usa el que te mostró el alert: ' + codigoReal);
+      alert('Código incorrecto, intenta de nuevo ');
       return;
     }
     if(nuevaPass.length < 8){
